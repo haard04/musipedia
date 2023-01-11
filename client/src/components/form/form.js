@@ -2,7 +2,7 @@ import React , {useState} from "react";
 import { TextField, Typography,Button,Paper } from "@mui/material";
 import theme from './styles.js';
 import { useDispatch } from "react-redux";
-import {createPosts} from "../../actions/posts.js"
+import {createPosts} from "../actions/posts.js"
 
 import {ThemeProvider} from '@mui/material/styles'
 const Form=()=>{
