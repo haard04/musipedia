@@ -1,1 +1,1 @@
-# mern
+# mernstack web app
