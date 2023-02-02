@@ -3,7 +3,7 @@
     "version": "1.0.0",
     "description": "",
     "scripts": {
-        "build": "server/client/build",
+        "build": "npm run build",
         "test": "echo \"No test specified\" && exit 1",
         "start": "node index.js"
     },
