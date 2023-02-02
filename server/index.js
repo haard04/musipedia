@@ -2,22 +2,31 @@ import express from "express";
 import bodyParser from "body-parser";
 import cors from "cors";
 import mongoose from "mongoose";
-
+import path, { dirname } from "path";
 import postRoutes from "./routes/posts.js"
 
+
 const app=express();
-const path= require("path")
+
 
 app.use(bodyParser.json({limit:"30mb",extended:true}));
 app.use(bodyParser.urlencoded({limit:"30mb",extended:true}));
 app.use(cors());
 
 
-    app.use(express.static(path.join(__dirname,"./client/build")))
+
+
+const __dirname = path.dirname('./client');
+const filePath = path.join(__dirname, './client');
+
+const __dirname1 = path.dirname('./client/build/index.html');
+const filePath1 = path.join(__dirname1, './client/build/index.html');
+
+    app.use(express.static(filePath))
 
     app.get("*",function(req,res){
         res.sendFile(
-            path.join(__dirname,"./client/build/index.html"),
+            path.join(filePath1),
             function(err){
                 res.status(500).send(err)
             }
