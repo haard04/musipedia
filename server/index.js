@@ -6,16 +6,24 @@ import mongoose from "mongoose";
 import postRoutes from "./routes/posts.js"
 
 const app=express();
-
+const path= require("path")
 
 app.use(bodyParser.json({limit:"30mb",extended:true}));
 app.use(bodyParser.urlencoded({limit:"30mb",extended:true}));
 app.use(cors());
 
 
-if(process.env.NODE_ENV == "production"){
-    application.use(express.static("client/build"))
-}
+    app.use(express.static(path.join(__dirname,"./client/build")))
+
+    app.get("*",function(req,res){
+        res.sendFile(
+            path.join(__dirname,"./client/build/index.html"),
+            function(err){
+                res.status(500).send(err)
+            }
+        );
+    })
+
 
 
 
