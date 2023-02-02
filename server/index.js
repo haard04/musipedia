@@ -12,7 +12,15 @@ app.use(bodyParser.json({limit:"30mb",extended:true}));
 app.use(bodyParser.urlencoded({limit:"30mb",extended:true}));
 app.use(cors());
 
+
+if(process.env.NODE_ENV == "production"){
+    application.use(express.static("client/build"))
+}
+
+
+
 app.use('/posts',postRoutes);
+
 
 const CONNECTION_URL ='mongodb+srv://haardshah04:hh05200324@cluster0.zql38pj.mongodb.net/?retryWrites=true&w=majority';
 const PORT = process.env.PORT ||5000;

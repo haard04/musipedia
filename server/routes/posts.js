@@ -1,4 +1,4 @@
-import express from "express";
+import express, { application } from "express";
 
 import { getPosts,createPosts,deletePost } from "../controllers/posts.js";
 const router=express.Router();
