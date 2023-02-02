@@ -40,7 +40,7 @@ app.use('/posts',postRoutes);
 
 
 const CONNECTION_URL ='mongodb+srv://haardshah04:hh05200324@cluster0.zql38pj.mongodb.net/?retryWrites=true&w=majority';
-const PORT = process.env.PORT ||5000;
+const PORT = process.env.PORT ||5069;
 mongoose.set("strictQuery", false);
 mongoose.connect(CONNECTION_URL , 
     { useNewUrlParser:true,useUnifiedTopology: true}
